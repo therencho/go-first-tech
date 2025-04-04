@@ -115,7 +115,7 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold mb-6 text-custom-heading">Our Story</h2>
             <div className="space-y-4 text-custom">
               <p>
-                Go-First-Tech was founded with a simple mission: to provide businesses with enterprise-level IT solutions that were previously only accessible to large corporations. We believe that every business deserves reliable technology that enables growth.
+                GoFirst Tech was founded with a simple mission: to provide businesses with enterprise-level IT solutions that were previously only accessible to large corporations. We believe that every business deserves reliable technology that enables growth.
               </p>
               <p>
                 Starting as a small team of IT consultants in 2010, we've grown into a comprehensive technology partner for businesses across multiple industries. Our approach has always been to focus on understanding our clients' unique needs and delivering tailored solutions that directly impact their success.
@@ -187,7 +187,7 @@ export default function AboutPage() {
       {/* Why Choose Us */}
       <section className="w-full py-20 px-4 bg-primary">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center animate-on-scroll opacity-0 text-custom">Why Choose Go-First-Tech</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center animate-on-scroll opacity-0 text-custom">Why Choose GoFirst Tech</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center animate-on-scroll opacity-0">
               <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-custom/20 mb-4">

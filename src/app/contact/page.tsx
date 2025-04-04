@@ -347,7 +347,7 @@ export default function ContactPage() {
                 </svg>
               </div>
               <div className="absolute text-center bottom-8 left-1/2 transform -translate-x-1/2 bg-background p-4 rounded-lg shadow-lg w-80">
-                <h3 className="font-semibold text-heading-color">Go-First Tech Headquarters</h3>
+                <h3 className="font-semibold text-heading-color">GoFirst Tech Headquarters</h3>
                 <p className="text-text-secondary">123 Tech Drive, San Francisco, CA 94103</p>
               </div>
             </div>

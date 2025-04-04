@@ -246,7 +246,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-heading-color animate-on-scroll opacity-0">
-              Why Choose Go-First Tech
+              Why Choose GoFirst Tech
             </h2>
             <p className="mt-4 text-lg text-text-secondary max-w-3xl mx-auto animate-on-scroll opacity-0">
               We combine technical expertise with business acumen to deliver solutions that drive measurable results
@@ -365,7 +365,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                quote: "Go-First Tech revolutionized our IT infrastructure. Their cloud migration strategy cut our operational costs by 30% while improving system reliability.",
+                quote: "GoFirst Tech revolutionized our IT infrastructure. Their cloud migration strategy cut our operational costs by 30% while improving system reliability.",
                 author: "Sarah Johnson",
                 position: "CTO, ReliableCorp Inc",
                 avatar: (
@@ -566,7 +566,7 @@ export default function Home() {
               Ready to transform your IT infrastructure?
             </h2>
             <p className="text-xl max-w-3xl mx-auto mb-10 text-text-secondary animate-on-scroll opacity-0">
-              Partner with Go-First-Tech for innovative solutions that drive business growth and efficiency.
+              Partner with GoFirst Tech for innovative solutions that drive business growth and efficiency.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 animate-on-scroll opacity-0">
               <Link href="/contact" className="gradient-button py-4 px-8 font-medium text-lg">

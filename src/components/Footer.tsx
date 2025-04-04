@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-custom-heading">Go-First-Tech</h3>
+            <h3 className="text-lg font-semibold text-custom-heading">GoFirst Tech</h3>
             <p className="text-sm text-custom">
               IT Consultancy and Tech Support services tailored for your business needs.
             </p>
@@ -94,7 +94,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-foreground/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-custom">
-          <p>© {currentYear} Go-First-Tech. All rights reserved.</p>
+          <p>© {currentYear} GoFirst Tech. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/privacy-policy" className="hover:text-primary transition-colors">
               Privacy Policy

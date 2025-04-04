@@ -15,7 +15,7 @@ const geistMono = GeistMono({
 })
 
 export const metadata = {
-  title: 'Go-First Tech - IT Solutions for Modern Business',
+  title: 'GoFirst Tech - IT Solutions for Modern Business',
   description: 'We provide IT consultancy and tech support services tailored for your business needs.',
 }
 
