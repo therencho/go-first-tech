@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center">
       {/* Hero Section */}
-      <section className="w-full bg-background py-20 md:py-32 px-4 flex flex-col items-center justify-center min-h-[90vh] relative overflow-hidden">
+      <section className="w-full bg-background py-4 md:py-24 px-4 flex flex-col items-center justify-center min-h-[90vh] relative overflow-hidden">
         {/* Animated shapes */}
         <div 
           className="absolute w-64 h-64 rounded-full bg-primary/10 blur-3xl" 
@@ -75,7 +75,7 @@ export default function Home() {
               
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight hero-title text-foreground">
                 Tech <span className="text-heading-color">Excellence</span> For Your Business
-              </h1>
+          </h1>
               
               <div className="hero-decorative-line"></div>
               
@@ -84,12 +84,12 @@ export default function Home() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mt-6 hero-description">
-                <Link href="/contact" className="gradient-button py-4 px-8 font-medium text-lg">
-                  Get Started
-                </Link>
-                <Link href="/services" className="py-4 px-8 border border-text-secondary/20 rounded-full font-medium text-lg hover:bg-secondary hover:text-foreground hover:border-transparent transition-colors text-text-secondary">
-                  Explore Services
-                </Link>
+            <Link href="/contact" className="gradient-button py-4 px-8 font-medium text-lg">
+              Get Started
+            </Link>
+                <Link href="/services" className="service-outline-hover py-4 px-8 border border-text-secondary/20 rounded-full font-medium text-lg hover:bg-secondary hover:text-foreground hover:border-transparent transition-colors text-text-secondary">
+              Explore Services
+            </Link>
               </div>
               
               <div className="flex items-center gap-4 mt-8 hero-badge">
@@ -145,7 +145,7 @@ export default function Home() {
       </section>
 
       {/* Services Overview */}
-      <section className="w-full py-24 px-4">
+      <section className="w-full py-4 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 animate-on-scroll opacity-0 text-custom-heading">
             Our Core Services
@@ -199,11 +199,11 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-3 parallax-content text-custom-heading">Cybersecurity Consulting</h3>
+                <h3 className="text-xl font-semibold mb-3 parallax-content text-custom-heading">Cybersecurity Services</h3>
                 <p className="text-foreground flex-grow parallax-content">
-                  Protect your digital assets with comprehensive security assessments and solutions.
+                  Protect your digital assets with our comprehensive security audits, implementations, and training programs.
                 </p>
-                <Link href="/services#cybersecurity" className="mt-6 text-primary hover:text-primary-hover flex items-center parallax-content">
+                <Link href="/services#security" className="mt-6 text-primary hover:text-primary-hover flex items-center parallax-content">
                   Learn more
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -211,17 +211,17 @@ export default function Home() {
                 </Link>
               </div>
             </AnimatedCard>
-
+            
             <AnimatedCard className="card-custom p-8 h-full">
               <div className="flex flex-col h-full">
                 <div className="rounded-full bg-primary/10 w-14 h-14 flex items-center justify-center mb-6">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-3 parallax-content text-custom-heading">IT Support Services</h3>
+                <h3 className="text-xl font-semibold mb-3 parallax-content text-custom-heading">IT Support & Maintenance</h3>
                 <p className="text-foreground flex-grow parallax-content">
-                  24/7 technical assistance for all your IT needs with rapid response times and expert problem resolution.
+                  Ensure optimal system performance with our proactive monitoring, help desk services, and rapid issue resolution.
                 </p>
                 <Link href="/services#support" className="mt-6 text-primary hover:text-primary-hover flex items-center parallax-content">
                   Learn more
@@ -232,126 +232,146 @@ export default function Home() {
               </div>
             </AnimatedCard>
           </div>
-          
-          <div className="text-center mt-16">
-            <Link href="/services" className="py-3 px-8 border border-foreground/20 rounded-full font-medium hover:bg-background hover:border-foreground/40 transition-colors animate-on-scroll opacity-0 text-foreground">
-              View All Services
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="w-full py-24 px-4 bg-background">
+      {/* Why Choose Us Section - NEW SECTION BEFORE TESTIMONIALS */}
+      <section className="w-full py-16 px-4 bg-secondary">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-heading-color animate-on-scroll opacity-0">
               Why Choose GoFirst Tech
             </h2>
             <p className="mt-4 text-lg text-text-secondary max-w-3xl mx-auto animate-on-scroll opacity-0">
-              We combine technical expertise with business acumen to deliver solutions that drive measurable results
+              We deliver innovative solutions with a client-first approach to transform your business
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                ),
-                title: 'Fast Response',
-                description: 'Our team responds to support requests within 1 hour, ensuring minimal downtime for your business.'
-              },
-              {
-                icon: (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                ),
-                title: 'Security First',
-                description: 'We implement industry-leading security practices to protect your valuable business data.'
-              },
-              {
-                icon: (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                ),
-                title: 'Expert Team',
-                description: 'Our certified professionals bring decades of combined experience across all major technology platforms.'
-              },
-              {
-                icon: (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                  </svg>
-                ),
-                title: 'Scalable Solutions',
-                description: 'Our infrastructure solutions grow with your business, eliminating costly overhauls down the line.'
-              }
-            ].map((item, index) => (
-              <div key={index} className="animate-on-scroll opacity-0">
-                <div className="bg-secondary p-8 rounded-2xl h-full flex flex-col items-center text-center">
-                  <div className="rounded-full bg-background p-4 mb-6 text-heading-color">
-                    {item.icon}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="animate-on-scroll opacity-0">
+              <div className="bg-background rounded-2xl h-full p-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="bg-secondary/50 p-6 rounded-xl">
+                    <div className="rounded-full bg-primary/10 p-3 w-14 h-14 flex items-center justify-center mb-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-semibold text-heading-color mb-2">Proactive Approach</h3>
+                    <p className="text-text-secondary">
+                      We identify and resolve potential issues before they impact your business operations.
+                    </p>
                   </div>
-                  <h3 className="text-xl font-semibold mb-3 text-foreground">{item.title}</h3>
-                  <p className="text-text-secondary">{item.description}</p>
+                  
+                  <div className="bg-secondary/50 p-6 rounded-xl">
+                    <div className="rounded-full bg-primary/10 p-3 w-14 h-14 flex items-center justify-center mb-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-semibold text-heading-color mb-2">Certified Expertise</h3>
+                    <p className="text-text-secondary">
+                      Our team holds industry-leading certifications across all major technology platforms.
+                    </p>
+                  </div>
+                  
+                  <div className="bg-secondary/50 p-6 rounded-xl">
+                    <div className="rounded-full bg-primary/10 p-3 w-14 h-14 flex items-center justify-center mb-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-semibold text-heading-color mb-2">Dedicated Support</h3>
+                    <p className="text-text-secondary">
+                      Our responsive support team is available 24/7 to ensure your systems run smoothly.
+                    </p>
+                  </div>
+                  
+                  <div className="bg-secondary/50 p-6 rounded-xl">
+                    <div className="rounded-full bg-primary/10 p-3 w-14 h-14 flex items-center justify-center mb-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-semibold text-heading-color mb-2">Scalable Solutions</h3>
+                    <p className="text-text-secondary">
+                      Our technology grows with your business, ensuring long-term ROI on your IT investments.
+                    </p>
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Tech Support Section */}
-      <section className="w-full py-24 px-4 bg-secondary">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
-          <div className="lg:w-1/2 animate-on-scroll opacity-0">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-custom-heading">
-              24/7 IT Support <br/>when you need it
-            </h2>
-            <p className="text-custom text-lg mb-8">
-              Our team of certified technicians is available around the clock to resolve your IT issues quickly and efficiently.
-            </p>
-            <ul className="space-y-4 text-custom">
-              {[
-                'Remote troubleshooting for PCs and servers',
-                'Software installation & updates',
-                'Network setup & maintenance',
-                'Virus & malware removal'
-              ].map((item, i) => (
-                <li key={i} className="flex items-start">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <Link href="/contact" className="gradient-button py-3 px-6 font-medium inline-block mt-8">
-              Contact Support
+            </div>
+            
+            <div className="animate-on-scroll opacity-0" style={{ animationDelay: '150ms' }}>
+              <div className="bg-background rounded-2xl h-full p-8 flex flex-col">
+                <h3 className="text-2xl font-bold text-heading-color mb-6">How We Deliver Excellence</h3>
+                
+                <div className="space-y-6 flex-grow">
+                  <div className="flex">
+                    <div className="mr-4 flex-shrink-0">
+                      <div className="rounded-full bg-primary/10 w-10 h-10 flex items-center justify-center">
+                        <span className="text-primary font-semibold">01</span>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-heading-color mb-2">Comprehensive Assessment</h4>
+                      <p className="text-text-secondary">We begin with a thorough analysis of your current IT infrastructure and business goals to identify opportunities.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex">
+                    <div className="mr-4 flex-shrink-0">
+                      <div className="rounded-full bg-primary/10 w-10 h-10 flex items-center justify-center">
+                        <span className="text-primary font-semibold">02</span>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-heading-color mb-2">Tailored Strategy</h4>
+                      <p className="text-text-secondary">We develop a customized technology roadmap aligned with your specific business objectives and budget constraints.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex">
+                    <div className="mr-4 flex-shrink-0">
+                      <div className="rounded-full bg-primary/10 w-10 h-10 flex items-center justify-center">
+                        <span className="text-primary font-semibold">03</span>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-heading-color mb-2">Expert Implementation</h4>
+                      <p className="text-text-secondary">Our certified technicians execute solutions with minimal disruption to your daily operations.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex">
+                    <div className="mr-4 flex-shrink-0">
+                      <div className="rounded-full bg-primary/10 w-10 h-10 flex items-center justify-center">
+                        <span className="text-primary font-semibold">04</span>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-heading-color mb-2">Continuous Optimization</h4>
+                      <p className="text-text-secondary">We provide ongoing monitoring, maintenance, and optimization to ensure maximum performance and ROI.</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="mt-8">
+                  <Link href="/services" className="text-primary hover:text-primary-hover flex items-center font-medium">
+                    Learn more about our approach
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
             </Link>
-          </div>
-          <div className="lg:w-1/2 animate-on-scroll opacity-0">
-            <div className="relative h-[400px] w-full lg:h-[500px] rounded-xl overflow-hidden shadow-xl">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 z-10"></div>
-              <Image
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                alt="IT Support Team"
-                fill
-                style={{ objectFit: 'cover' }}
-                className="z-0"
-              />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="w-full py-24 px-4 bg-background">
+      <section className="w-full py-16 px-4 bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-heading-color animate-on-scroll opacity-0">
@@ -422,7 +442,7 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="w-full py-20 px-4 bg-secondary">
+      <section className="w-full py-16 px-4 bg-secondary">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -471,14 +491,14 @@ export default function Home() {
                   <div className="text-4xl md:text-5xl font-bold text-foreground mb-2">{stat.number}</div>
                   <div className="text-text-secondary">{stat.label}</div>
                 </div>
-              </div>
+            </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Case Studies Section */}
-      <section className="w-full py-24 px-4 bg-background">
+      <section className="w-full py-16 px-4 bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-heading-color animate-on-scroll opacity-0">
@@ -534,12 +554,7 @@ export default function Home() {
                         ))}
                       </div>
                       
-                      <Link href="/contact" className="inline-flex items-center text-heading-color hover:text-primary mt-6">
-                        Discuss your project
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                        </svg>
-                      </Link>
+                      
                     </div>
                   </div>
                 </div>
@@ -548,7 +563,7 @@ export default function Home() {
           </div>
           
           <div className="text-center mt-12">
-            <Link href="/contact" className="inline-block py-3 px-8 bg-primary text-foreground rounded-lg font-medium hover:bg-primary-hover transition-colors animate-on-scroll opacity-0">
+            <Link href="/contact" className="gradient-button py-4 px-8 font-medium text-lg inline-block">
               Discuss Your Project
             </Link>
           </div>
@@ -556,23 +571,23 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="w-full py-24 px-4 bg-secondary relative overflow-hidden">
+      <section className="w-full py-16 px-4 bg-secondary relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-primary/10 blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-primary/10 blur-3xl"></div>
         
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="bg-background rounded-3xl p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-on-scroll opacity-0 text-heading-color">
-              Ready to transform your IT infrastructure?
-            </h2>
+              Elevate Your Business with Expert IT Solutions
+          </h2>
             <p className="text-xl max-w-3xl mx-auto mb-10 text-text-secondary animate-on-scroll opacity-0">
               Partner with GoFirst Tech for innovative solutions that drive business growth and efficiency.
-            </p>
+          </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 animate-on-scroll opacity-0">
               <Link href="/contact" className="gradient-button py-4 px-8 font-medium text-lg">
-                Schedule a Consultation
-              </Link>
-              <Link href="/services" className="py-4 px-8 border border-text-secondary/20 rounded-full font-medium text-lg hover:bg-secondary hover:text-foreground hover:border-transparent transition-colors text-text-secondary">
+            Schedule a Consultation
+          </Link>
+              <Link href="/services" className="service-outline-hover py-4 px-8 border border-text-secondary/20 rounded-full font-medium text-lg hover:bg-secondary hover:text-foreground hover:border-transparent transition-colors text-text-secondary">
                 Explore Services
               </Link>
             </div>

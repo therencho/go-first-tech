@@ -14,19 +14,29 @@
   --transition-ease: cubic-bezier(0.65, 0, 0.35, 1);
   --font-sans: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
+  --svg-accent: #5A665A;
+  --svg-primary: #b4bdb2;
+  --svg-secondary: #3C3D37;
+  --toggle-active: #b4bdb2;
+  --toggle-inactive: #3C3D37;
 }
 
 :root[data-theme="light"] {
   --background: #ECDFCC;
   --foreground: #1E201E;
-  --primary: #b4bdb2;
-  --primary-hover: #5A665A;
+  --primary: #5A665A;
+  --primary-hover: #3C3D37;
   --secondary: #b4bdb2;
   --accent: #3C3D37;
-  --card-bg: #b4bdb2;
+  --card-bg: #f0e6d7;
   --text-secondary: #3C3D37;
   --heading-color: #3C3D37;
   --card-bg-dark: #D8CDB9;
+  --svg-accent: #3C3D37;
+  --svg-primary: #5A665A;
+  --svg-secondary: #6A7968;
+  --toggle-active: #5A665A;
+  --toggle-inactive: #b4bdb2;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -88,11 +98,42 @@ html {
   color: var(--foreground);
   border-radius: 9999px;
   transition: all 0.3s var(--transition-ease);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.gradient-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #5A665A, #3C3D37);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s var(--transition-ease);
+  border-radius: 9999px;
+}
+
+:root[data-theme="light"] .gradient-button {
+  background: linear-gradient(90deg, #5A665A, #3C3D37);
+  color: #ECDFCC;
+  box-shadow: 0 4px 12px rgba(90, 102, 90, 0.3);
+}
+
+:root[data-theme="light"] .gradient-button::before {
+  background: linear-gradient(90deg, #3C3D37, #1E201E);
 }
 
 .gradient-button:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(105, 117, 101, 0.3);
+}
+
+.gradient-button:hover::before {
+  opacity: 1;
 }
 
 /* Subtle parallax card effect */
@@ -159,6 +200,11 @@ html {
 }
 
 .theme-toggle[data-theme="light"] .theme-toggle-thumb {
+  transform: translateX(24px);
+}
+
+/* Billing toggle styling - uses the same base style as theme toggle */
+.theme-toggle[data-billing="annual"] .theme-toggle-thumb {
   transform: translateX(24px);
 }
 
@@ -340,4 +386,67 @@ html {
 
 .animate-fadeDown {
   animation: fadeDown 0.3s var(--transition-ease) forwards;
+}
+
+/* Custom color additions for SVG visibility */
+svg.text-primary {
+  color: var(--svg-primary);
+}
+
+.blog-category-background {
+  background-color: var(--primary);
+  color: var(--background);
+  font-weight: 500;
+}
+
+:root[data-theme="light"] .blog-category-background {
+  background-color: #5A665A;
+  color: var(--foreground);
+}
+
+/* Hover outline styles for service buttons */
+.service-outline-hover {
+  position: relative;
+  transition: all 0.3s var(--transition-ease);
+}
+
+.service-outline-hover:hover {
+  border-color: transparent;
+}
+
+.service-outline-hover::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: transparent;
+  border-radius: 9999px;
+  border: 2px solid rgba(180, 189, 178, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s var(--transition-ease);
+  pointer-events: none;
+}
+
+:root[data-theme="light"] .service-outline-hover::after {
+  border: 2px solid rgba(90, 102, 90, 0.4);
+}
+
+.service-outline-hover:hover::after {
+  opacity: 1;
+}
+
+/* Toggle button enhancements */
+.pricing-toggle-button {
+  background-color: var(--toggle-inactive);
+  transition: all 0.3s var(--transition-ease);
+}
+
+.pricing-toggle-button[aria-checked="true"] {
+  background-color: var(--toggle-active);
+}
+
+.pricing-toggle-button .toggle-thumb {
+  background-color: #ECDFCC;
 }

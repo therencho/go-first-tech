@@ -83,12 +83,12 @@ const Navbar = () => {
       </div>
       
       {/* Expandable navigation panel */}
-      <div 
-        className={`w-full fixed inset-x-0 transition-all duration-500 ease-in-out bg-custom border-b border-primary/20 shadow-lg overflow-hidden ${
-          expanded ? 'top-[60px] max-h-[500px] opacity-100' : 'top-[60px] max-h-0 opacity-0 pointer-events-none'
+      <div
+        className={`w-full fixed inset-x-0 transition-all duration-500 ease-in-out bg-custom border-b border-primary/20 shadow-lg overflow-y-auto ${
+          expanded ? 'top-[60px] max-h-[calc(100vh-60px)] opacity-100' : 'top-[60px] max-h-0 opacity-0 pointer-events-none'
         }`}
       >
-        <div className="max-w-7xl mx-auto p-4 pt-6">
+        <div className="max-w-7xl mx-auto p-4 pt-6 pb-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Navigation Links Column 1 */}
             <div>
@@ -161,34 +161,31 @@ const Navbar = () => {
                 </li>
                 <li>
                   <Link 
-                    href="/resources" 
-                    className={`text-lg ${activeLink === '/resources' ? 'font-bold text-primary' : 'text-custom hover:text-primary'}`}
+                    href="/case-studies" 
+                    className={`text-lg ${activeLink === '/case-studies' ? 'font-bold text-primary' : 'text-custom hover:text-primary'}`}
                     onClick={() => setExpanded(false)}
                   >
-                    Resources
+                    Case Studies
                   </Link>
                 </li>
               </ul>
             </div>
             
             {/* Contact Column */}
-            <div className="bg-custom-secondary p-6 rounded-xl">
-              <h3 className="text-sm font-semibold text-custom-heading uppercase tracking-wider mb-4">
+            <div className="bg-secondary/30 p-5 rounded-lg border border-primary/10 mb-4">
+              <h3 className="text-sm font-semibold text-custom-heading uppercase tracking-wider mb-3">
                 Get in Touch
               </h3>
-              <p className="text-custom mb-6">
+              <p className="text-custom mb-4 text-sm">
                 Ready to transform your IT infrastructure? Let's start a conversation today.
               </p>
               <Link 
                 href="/contact" 
-                className="gradient-button py-2 px-6 rounded-full text-center block"
+                className="gradient-button py-2 px-4 rounded-full text-center block text-sm"
                 onClick={() => setExpanded(false)}
               >
                 Contact Us
               </Link>
-              
-              
-             
             </div>
           </div>
         </div>

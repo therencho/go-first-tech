@@ -200,46 +200,43 @@ export default function PricingPage() {
     <main className="flex flex-col items-center">
       {/* Hero Section */}
       <PageHero
-        title="Simple, Transparent Pricing"
-        description="Choose the plan that fits your business needs with no hidden fees or surprises."
+        title="Transparent Pricing"
+        description="Flexible IT solutions tailored to your business needs and budget"
         icon={pricingIcon}
       />
 
-      {/* Billing Toggle */}
-      <section className="w-full py-12 px-4">
+      {/* Pricing Controls */}
+      <section className="w-full py-8 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="flex justify-center items-center space-x-4 animate-on-scroll opacity-0">
-            <button
-              onClick={() => setAnnualBilling(false)}
-              className={`text-lg transition-colors ${!annualBilling ? 'font-semibold text-foreground' : 'text-text-secondary'}`}
-            >
-              Monthly
-            </button>
-            <button 
-              onClick={() => setAnnualBilling(!annualBilling)} 
-              className="relative inline-flex h-8 w-16 items-center rounded-full cursor-pointer"
-              aria-pressed={annualBilling}
-            >
-              <span className="sr-only">Toggle annual billing</span>
+          <div className="flex flex-col items-center">
+            {/* Billing Toggle */}
+            <div className="relative inline-flex items-center">
               <span 
-                className={`
-                  absolute h-6 w-6 transform rounded-full transition-transform 
-                  ${annualBilling ? 'translate-x-9 bg-primary' : 'translate-x-1 bg-secondary'}
-                `}
-              />
+                className={`mr-4 font-medium ${!annualBilling ? 
+                  'text-primary text-lg' : 'text-custom/70 text-base'}`}
+              >
+                Monthly
+              </span>
+              
+              <button 
+                onClick={() => setAnnualBilling(!annualBilling)}
+                className="theme-toggle"
+                data-billing={annualBilling ? "annual" : "monthly"}
+                aria-label={`Switch to ${annualBilling ? 'monthly' : 'annual'} billing`}
+              >
+                <span className="theme-toggle-thumb"></span>
+                <span className="sr-only">
+                  {annualBilling ? 'Switch to monthly billing' : 'Switch to annual billing'}
+                </span>
+              </button>
+              
               <span 
-                className={`
-                  inline-block h-8 w-16 rounded-full 
-                  ${annualBilling ? 'bg-primary/20' : 'bg-secondary/30'}
-                `}
-              />
-            </button>
-            <button
-              onClick={() => setAnnualBilling(true)}
-              className={`text-lg transition-colors ${annualBilling ? 'font-semibold text-foreground' : 'text-text-secondary'}`}
-            >
-              Annual <span className="text-sm text-primary font-normal">Save 15%</span>
-            </button>
+                className={`ml-4 font-medium ${annualBilling ? 
+                  'text-primary text-lg' : 'text-custom/70 text-base'}`}
+              >
+                Annual
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -247,7 +244,7 @@ export default function PricingPage() {
       {/* IT Support Plans */}
       <section className="w-full py-12 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-16 text-center animate-on-scroll opacity-0 text-heading-color">
+          <h2 className="text-3xl font-bold mb-16 text-center animate-on-scroll opacity-0 text-custom-heading">
             IT Support Plans
           </h2>
 
@@ -256,67 +253,70 @@ export default function PricingPage() {
               <AnimatedCard 
                 key={index} 
                 className={`
-                  h-full relative p-8 rounded-2xl
-                  ${plan.highlighted ? 
-                    'bg-primary border-2 border-primary' : 
-                    'bg-background border border-primary/20'}
+                  h-full transform transition-all duration-300 pt-5
+                  ${plan.highlighted 
+                    ? 'bg-primary/10 border-2 border-primary/30 shadow-xl hover:shadow-2xl hover:scale-105 z-10' 
+                    : 'bg-secondary border border-primary/10 hover:shadow-lg hover:scale-100'}
                 `}
               >
-                {plan.highlighted && (
-                  <div className="absolute -top-4 left-0 right-0 text-center">
-                    <span className="bg-secondary text-foreground text-sm font-medium px-4 py-1 rounded-full shadow-lg">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-                <div className="flex flex-col h-full">
-                  <h3 className={`text-2xl font-bold mb-2 parallax-content ${plan.highlighted ? 'text-foreground' : 'text-heading-color'}`}>
-                    {plan.name}
-                  </h3>
-                  <p className={`mb-6 parallax-content ${plan.highlighted ? 'text-foreground/80' : 'text-text-secondary'}`}>
-                    {plan.description}
-                  </p>
-                  
-                  <div className="mb-6 parallax-content">
-                    <span className={`text-3xl font-bold ${plan.highlighted ? 'text-foreground' : 'text-heading-color'}`}>
-                      ${plan.price}
-                    </span>
-                    <span className={`text-sm ${plan.highlighted ? 'text-foreground/80' : 'text-text-secondary'}`}>
-                      {plan.perText}
-                    </span>
-                  </div>
-                  
-                  <ul className="space-y-3 mb-8 flex-grow">
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-start parallax-content">
-                        <svg 
-                          xmlns="http://www.w3.org/2000/svg" 
-                          className={`h-5 w-5 mr-2 flex-shrink-0 ${plan.highlighted ? 'text-foreground' : 'text-primary'}`} 
-                          fill="none" 
-                          viewBox="0 0 24 24" 
-                          stroke="currentColor"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span className={plan.highlighted ? 'text-foreground/90' : 'text-text-secondary'}>
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <div className="mt-8">
-                    <button 
-                      onClick={() => openContactModal(plan.name)}
-                      className={`
-                        w-full py-3 px-6 rounded-lg text-center font-medium transition-colors
-                        ${plan.highlighted 
-                          ? 'bg-primary text-foreground hover:bg-primary-hover' 
-                          : 'bg-secondary text-foreground hover:bg-primary/80'}
-                      `}
-                    >
-                      Order Now
-                    </button>
+                <div className="p-8">
+                  {plan.highlighted && (
+                    <div className="absolute -top-3 left-0 right-0 flex justify-center">
+                      <span className="bg-primary text-foreground px-4 py-1 rounded-full text-sm font-semibold shadow-md">
+                        Most Popular
+                      </span>
+                    </div>
+                  )}
+                  <div className="flex flex-col h-full">
+                    <h3 className={`text-2xl font-bold mb-2 parallax-content ${plan.highlighted ? 'text-custom' : 'text-custom-heading'}`}>
+                      {plan.name}
+                    </h3>
+                    <p className={`mb-6 parallax-content ${plan.highlighted ? 'text-custom/90' : 'text-custom/70'}`}>
+                      {plan.description}
+                    </p>
+                    
+                    <div className="mb-6 parallax-content">
+                      <span className={`text-4xl font-bold ${plan.highlighted ? 'text-custom' : 'text-custom-heading'}`}>
+                        ${plan.price}
+                      </span>
+                      <span className={`text-sm ${plan.highlighted ? 'text-custom/80' : 'text-custom/70'}`}>
+                        {plan.perText}
+                      </span>
+                    </div>
+                    
+                    <ul className="space-y-3 mb-8 flex-grow">
+                      {plan.features.map((feature, i) => (
+                        <li key={i} className="flex items-start parallax-content">
+                          <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            className={`h-5 w-5 mr-2 flex-shrink-0 ${plan.highlighted ? 'text-custom' : 'text-primary'}`} 
+                            fill="none" 
+                            viewBox="0 0 24 24" 
+                            stroke="currentColor"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span className={plan.highlighted ? 'text-custom/90' : 'text-custom/80'}>
+                            {feature}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                    
+                    <div className="mt-8">
+                      <button 
+                        onClick={() => openContactModal(plan.name)}
+                        className={`
+                          w-full py-3.5 px-6 rounded-lg text-center font-medium transition-all
+                          ${plan.highlighted 
+                            ? 'gradient-button hover:shadow-lg hover:scale-105' 
+                            : 'bg-primary text-foreground hover:bg-primary-hover shadow-md hover:shadow-lg hover:scale-105 border border-primary/30'}
+                          text-base sm:text-lg
+                        `}
+                      >
+                        Order Now
+                      </button>
+                    </div>
                   </div>
                 </div>
               </AnimatedCard>
@@ -328,7 +328,7 @@ export default function PricingPage() {
       {/* IT Consulting Plans */}
       <section className="w-full py-20 px-4 bg-secondary">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-16 text-center animate-on-scroll opacity-0 text-heading-color">
+          <h2 className="text-3xl font-bold mb-16 text-center animate-on-scroll opacity-0 text-custom-heading">
             IT Consulting Services
           </h2>
 
@@ -337,67 +337,70 @@ export default function PricingPage() {
               <AnimatedCard 
                 key={index} 
                 className={`
-                  h-full relative p-8 rounded-2xl
-                  ${plan.highlighted ? 
-                    'bg-primary border-2 border-primary' : 
-                    'bg-background border border-primary/20'}
+                  h-full transform transition-all duration-300 pt-5
+                  ${plan.highlighted 
+                    ? 'bg-primary/10 border-2 border-primary/30 shadow-xl hover:shadow-2xl hover:scale-105 z-10' 
+                    : 'bg-secondary border border-primary/10 hover:shadow-lg hover:scale-100'}
                 `}
               >
-                {plan.highlighted && (
-                  <div className="absolute -top-4 left-0 right-0 text-center">
-                    <span className="bg-secondary text-foreground text-sm font-medium px-4 py-1 rounded-full shadow-lg">
-                      Recommended
-                    </span>
-                  </div>
-                )}
-                <div className="flex flex-col h-full">
-                  <h3 className={`text-2xl font-bold mb-2 parallax-content ${plan.highlighted ? 'text-foreground' : 'text-heading-color'}`}>
-                    {plan.name}
-                  </h3>
-                  <p className={`mb-6 parallax-content ${plan.highlighted ? 'text-foreground/80' : 'text-text-secondary'}`}>
-                    {plan.description}
-                  </p>
-                  
-                  <div className="mb-6 parallax-content">
-                    <span className={`text-3xl font-bold ${plan.highlighted ? 'text-foreground' : 'text-heading-color'}`}>
-                      ${plan.price}
-                    </span>
-                    <span className={`text-sm ${plan.highlighted ? 'text-foreground/80' : 'text-text-secondary'}`}>
-                      {plan.price === 'Custom' ? '' : ' one-time'}
-                    </span>
-                  </div>
-                  
-                  <ul className="space-y-3 mb-8 flex-grow">
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-start parallax-content">
-                        <svg 
-                          xmlns="http://www.w3.org/2000/svg" 
-                          className={`h-5 w-5 mr-2 flex-shrink-0 ${plan.highlighted ? 'text-foreground' : 'text-primary'}`} 
-                          fill="none" 
-                          viewBox="0 0 24 24" 
-                          stroke="currentColor"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        <span className={plan.highlighted ? 'text-foreground/90' : 'text-text-secondary'}>
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <div className="mt-8">
-                    <button 
-                      onClick={() => openContactModal(plan.name)}
-                      className={`
-                        w-full py-3 px-6 rounded-lg text-center font-medium transition-colors
-                        ${plan.highlighted 
-                          ? 'bg-primary text-foreground hover:bg-primary-hover' 
-                          : 'bg-secondary text-foreground hover:bg-primary/80'}
-                      `}
-                    >
-                      Order Now
-                    </button>
+                <div className="p-8">
+                  {plan.highlighted && (
+                    <div className="absolute -top-3 left-0 right-0 flex justify-center">
+                      <span className="bg-primary text-foreground px-4 py-1 rounded-full text-sm font-semibold shadow-md">
+                        Recommended
+                      </span>
+                    </div>
+                  )}
+                  <div className="flex flex-col h-full">
+                    <h3 className={`text-2xl font-bold mb-2 parallax-content ${plan.highlighted ? 'text-custom' : 'text-custom-heading'}`}>
+                      {plan.name}
+                    </h3>
+                    <p className={`mb-6 parallax-content ${plan.highlighted ? 'text-custom/90' : 'text-custom/70'}`}>
+                      {plan.description}
+                    </p>
+                    
+                    <div className="mb-6 parallax-content">
+                      <span className={`text-4xl font-bold ${plan.highlighted ? 'text-custom' : 'text-custom-heading'}`}>
+                        ${plan.price}
+                      </span>
+                      <span className={`text-sm ${plan.highlighted ? 'text-custom/80' : 'text-custom/70'}`}>
+                        {plan.price === 'Custom' ? '' : ' one-time'}
+                      </span>
+                    </div>
+                    
+                    <ul className="space-y-3 mb-8 flex-grow">
+                      {plan.features.map((feature, i) => (
+                        <li key={i} className="flex items-start parallax-content">
+                          <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            className={`h-5 w-5 mr-2 flex-shrink-0 ${plan.highlighted ? 'text-custom' : 'text-primary'}`} 
+                            fill="none" 
+                            viewBox="0 0 24 24" 
+                            stroke="currentColor"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span className={plan.highlighted ? 'text-custom/90' : 'text-custom/80'}>
+                            {feature}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                    
+                    <div className="mt-8">
+                      <button 
+                        onClick={() => openContactModal(plan.name)}
+                        className={`
+                          w-full py-3.5 px-6 rounded-lg text-center font-medium transition-all
+                          ${plan.highlighted 
+                            ? 'gradient-button hover:shadow-lg hover:scale-105' 
+                            : 'bg-primary text-foreground hover:bg-primary-hover shadow-md hover:shadow-lg hover:scale-105 border border-primary/30'}
+                          text-base sm:text-lg
+                        `}
+                      >
+                        Order Now
+                      </button>
+                    </div>
                   </div>
                 </div>
               </AnimatedCard>
@@ -441,7 +444,7 @@ export default function PricingPage() {
             </p>
             <button
               onClick={() => openContactModal('Custom Solution')}
-              className="py-4 px-8 bg-primary text-foreground rounded-full font-medium hover:shadow-lg hover:shadow-primary/20 transition-all"
+              className="gradient-button py-4 px-8 rounded-full font-medium hover:shadow-lg transition-all text-foreground hover:scale-105 duration-300"
             >
               Request Custom Pricing
             </button>
@@ -451,8 +454,8 @@ export default function PricingPage() {
 
       {/* Contact Modal */}
       {showContactModal && (
-        <div className="fixed inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="bg-background border border-primary/20 rounded-2xl shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
+          <div className="bg-background border-2 border-primary/20 rounded-2xl shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6">
               {formSubmitted ? (
                 <div className="text-center py-10">
@@ -467,7 +470,7 @@ export default function PricingPage() {
                   </p>
                   <button 
                     onClick={() => setShowContactModal(false)}
-                    className="px-6 py-2 bg-primary text-foreground rounded-full font-medium"
+                    className="gradient-button px-6 py-2 rounded-lg font-medium"
                   >
                     Close
                   </button>
@@ -483,9 +486,9 @@ export default function PricingPage() {
                     </div>
                     <button 
                       onClick={() => setShowContactModal(false)}
-                      className="text-text-secondary hover:text-foreground"
+                      className="text-text-secondary hover:text-heading-color bg-secondary/50 hover:bg-secondary p-1.5 rounded-full"
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                       </svg>
                     </button>
@@ -494,40 +497,34 @@ export default function PricingPage() {
                     Complete the form below to get in touch about the <strong>{selectedPlan}</strong> plan.
                   </p>
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    <input type="hidden" name="plan" value={formData.plan} />
-                    
                     <div>
                       <label htmlFor="name" className="block mb-1 text-sm font-medium text-heading-color">
-                        Name
+                        Full Name
                       </label>
                       <input
                         type="text"
                         id="name"
                         name="name"
+                        required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 rounded-lg border border-primary/20 bg-transparent focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
-                        required
-                        placeholder="Your name"
+                        className="w-full px-4 py-2 border border-primary/20 rounded-lg bg-background text-foreground"
                       />
                     </div>
-                    
                     <div>
                       <label htmlFor="email" className="block mb-1 text-sm font-medium text-heading-color">
-                        Email
+                        Email Address
                       </label>
                       <input
                         type="email"
                         id="email"
                         name="email"
+                        required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 rounded-lg border border-primary/20 bg-transparent focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
-                        required
-                        placeholder="your.email@example.com"
+                        className="w-full px-4 py-2 border border-primary/20 rounded-lg bg-background text-foreground"
                       />
                     </div>
-                    
                     <div>
                       <label htmlFor="phone" className="block mb-1 text-sm font-medium text-heading-color">
                         Phone Number
@@ -538,11 +535,9 @@ export default function PricingPage() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 rounded-lg border border-primary/20 bg-transparent focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
-                        placeholder="+1 (123) 456-7890"
+                        className="w-full px-4 py-2 border border-primary/20 rounded-lg bg-background text-foreground"
                       />
                     </div>
-                    
                     <div>
                       <label htmlFor="message" className="block mb-1 text-sm font-medium text-heading-color">
                         Additional Information
@@ -550,22 +545,18 @@ export default function PricingPage() {
                       <textarea
                         id="message"
                         name="message"
+                        rows={4}
                         value={formData.message}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 rounded-lg border border-primary/20 bg-transparent focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground"
-                        rows={3}
-                        placeholder="Any specific requirements or questions?"
-                      ></textarea>
+                        className="w-full px-4 py-2 border border-primary/20 rounded-lg bg-background text-foreground"
+                      />
                     </div>
-                    
-                    <div className="pt-2">
-                      <button
-                        type="submit"
-                        className="w-full py-3 px-6 bg-primary text-foreground rounded-full font-medium hover:shadow-lg hover:shadow-primary/20 transition-all"
-                      >
-                        Submit Request
-                      </button>
-                    </div>
+                    <button 
+                      type="submit"
+                      className="w-full gradient-button py-3 px-6 font-medium text-lg rounded-lg"
+                    >
+                      Submit Request
+                    </button>
                   </form>
                 </>
               )}
