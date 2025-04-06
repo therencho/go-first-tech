@@ -42,6 +42,10 @@ export default function ContactPage() {
     e.preventDefault();
     // In a real implementation, you would send the data to your server
     console.log('Form submitted:', formData);
+    
+    // Show alert message
+    alert("Your message has been sent. Someone will review it and will get back to you shortly.");
+    
     setFormSubmitted(true);
     // Reset form
     setFormData({
@@ -66,7 +70,7 @@ export default function ContactPage() {
     },
     {
       title: 'Phone',
-      info: '+1 (555) 123-4567',
+      info: '+971526731659',
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -84,7 +88,7 @@ export default function ContactPage() {
     },
     {
       title: 'Office Location',
-      info: '123 Tech Drive, San Francisco, CA',
+      info: 'Shams Media City, Sharjah, UAE',
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -312,9 +316,9 @@ export default function ContactPage() {
                       <div className="flex items-center">
                         <button
                           type="submit"
-                          className="py-3 px-8 bg-primary text-foreground rounded-full font-medium hover:shadow-lg hover:shadow-primary/20 transition-all"
+                          className="gradient-button py-4 px-8 font-medium text-lg"
                         >
-                          Send Message
+                          Submit Now
                         </button>
                         <p className="ml-4 text-sm text-text-secondary">
                           We'll get back to you within 24 hours
@@ -335,21 +339,22 @@ export default function ContactPage() {
           <div className="text-center mb-12 animate-on-scroll opacity-0">
             <h2 className="text-3xl font-bold mb-3 text-heading-color">Our Location</h2>
             <p className="text-text-secondary max-w-2xl mx-auto">
-              Visit our office for in-person consultations. We're conveniently located in the heart of San Francisco's tech district.
+              Visit our office for in-person consultations. We're conveniently located in Shams Media City, Sharjah, UAE.
             </p>
           </div>
           <div className="relative h-[400px] rounded-2xl overflow-hidden animate-on-scroll opacity-0 shadow-lg shadow-primary/5">
-            <div className="absolute inset-0 bg-primary/10 flex items-center justify-center">
-              <div className="p-4 bg-primary rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              </div>
-              <div className="absolute text-center bottom-8 left-1/2 transform -translate-x-1/2 bg-background p-4 rounded-lg shadow-lg w-80">
-                <h3 className="font-semibold text-heading-color">GoFirst Tech Headquarters</h3>
-                <p className="text-text-secondary">123 Tech Drive, San Francisco, CA 94103</p>
-              </div>
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.3077436269097!2d55.49462997511537!3d25.41950627746102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f59b02f98f961%3A0xb7ce4a18bf9f4a4a!2sShams%20Media%20City%20Free%20Zone!5e0!3m2!1sen!2sae!4v1689324567890!5m2!1sen!2sae" 
+              width="100%" 
+              height="100%" 
+              style={{border: 0}} 
+              allowFullScreen={true} 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+            <div className="absolute text-center bottom-8 left-1/2 transform -translate-x-1/2 bg-background p-4 rounded-lg shadow-lg w-80">
+              <h3 className="font-semibold text-heading-color">GoFirst Tech</h3>
+              <p className="text-text-secondary">Shams Media City, Sharjah, UAE</p>
             </div>
           </div>
         </div>

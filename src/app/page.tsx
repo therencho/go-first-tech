@@ -441,6 +441,132 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Client Portal Preview Section - With Easter Egg */}
+      <section className="w-full py-16 px-4 bg-secondary">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-heading-color animate-on-scroll opacity-0">
+              Seamless Client Experience
+            </h2>
+            <p className="mt-4 text-lg text-text-secondary max-w-3xl mx-auto animate-on-scroll opacity-0">
+              Our intuitive client portal keeps you informed and in control of your IT infrastructure
+            </p>
+          </div>
+          
+          <div className="animate-on-scroll opacity-0">
+            <div className="bg-background rounded-xl overflow-hidden shadow-xl border border-foreground/10">
+              {/* Dashboard Header */}
+              <div className="bg-primary/10 p-4 flex justify-between items-center">
+                <div className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <h3 className="text-xl font-bold text-foreground">GoFirst Tech Portal</h3>
+                </div>
+                <div className="flex items-center text-sm">
+                  <span className="text-text-secondary mr-2">Welcome,</span>
+                  <span className="font-medium text-heading-color">Admin</span>
+                </div>
+              </div>
+              
+              {/* Dashboard Content */}
+              <div className="p-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                  {/* System Status Card */}
+                  <div className="bg-secondary/30 rounded-lg p-4 border border-foreground/5">
+                    <div className="flex justify-between items-center mb-4">
+                      <h4 className="font-medium text-foreground">System Status</h4>
+                      <span className="bg-green-500/20 text-green-500 text-xs px-2 py-1 rounded-full">Healthy</span>
+                    </div>
+                    <div className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-text-secondary text-sm">Servers</span>
+                        <span className="text-green-500 text-sm">100% Uptime</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-text-secondary text-sm">Network</span>
+                        <span className="text-green-500 text-sm">Optimal</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-text-secondary text-sm">Security</span>
+                        <span className="text-green-500 text-sm">Protected</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Recent Tickets */}
+                  <div className="bg-secondary/30 rounded-lg p-4 border border-foreground/5">
+                    <h4 className="font-medium text-foreground mb-4">Recent Support Tickets</h4>
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-center">
+                        <span className="text-text-secondary text-sm">Ticket #4872</span>
+                        <span className="bg-blue-500/20 text-blue-500 text-xs px-2 py-1 rounded-full">In Progress</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-text-secondary text-sm">Ticket #4865</span>
+                        <span className="bg-green-500/20 text-green-500 text-xs px-2 py-1 rounded-full">Resolved</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Support Team */}
+                  <div className="bg-secondary/30 rounded-lg p-4 border border-foreground/5">
+                    <h4 className="font-medium text-foreground mb-4">Your Support Team</h4>
+                    <div className="space-y-3">
+                      <div className="flex items-center">
+                        <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center mr-3">
+                          <span className="text-primary text-xs font-medium">TR</span>
+                        </div>
+                        <div>
+                          <a href="https://therencho.com" className="text-foreground hover:text-primary transition-colors text-sm no-underline">The Rencho</a>
+                          <p className="text-text-secondary text-xs">Lead Engineer</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center mr-3">
+                          <span className="text-primary text-xs font-medium">AA</span>
+                        </div>
+                        <div>
+                          <p className="text-foreground text-sm">Ayra Ali</p>
+                          <p className="text-text-secondary text-xs">Support Specialist</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Activity Timeline */}
+                <div className="bg-secondary/30 rounded-lg p-4 border border-foreground/5 mb-4">
+                  <h4 className="font-medium text-foreground mb-4">Recent Activity</h4>
+                  <div className="space-y-4">
+                    <div className="flex">
+                      <div className="w-8 h-8 rounded-full bg-primary/20 flex-shrink-0 flex items-center justify-center mr-3">
+                        <span className="text-primary text-xs font-medium">TR</span>
+                      </div>
+                      <div>
+                        <p className="text-foreground text-sm">System update completed successfully</p>
+                        <p className="text-text-secondary text-xs">Updated by <a href="https://therencho.com" className="text-inherit hover:text-primary transition-colors">The Rencho</a> · 2 hours ago</p>
+                      </div>
+                    </div>
+                    <div className="flex">
+                      <div className="w-8 h-8 rounded-full bg-blue-500/20 flex-shrink-0 flex items-center justify-center mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-foreground text-sm">Security scan completed</p>
+                        <p className="text-text-secondary text-xs">Automated · 6 hours ago</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Stats Section */}
       <section className="w-full py-16 px-4 bg-secondary">
         <div className="max-w-7xl mx-auto">
