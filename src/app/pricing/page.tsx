@@ -452,117 +452,149 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Contact Modal */}
+      {/* New Contact Modal with Solid Background */}
       {showContactModal && (
-        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
-          <div className="bg-background border-2 border-primary/20 rounded-2xl shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6">
-              {formSubmitted ? (
-                <div className="text-center py-10">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-bold mb-2 text-heading-color">Thank You!</h3>
-                  <p className="text-text-secondary mb-6">
-                    We've received your request for the <strong>{selectedPlan}</strong> plan. Our team will contact you shortly to discuss the next steps.
-                  </p>
-                  <button 
-                    onClick={() => setShowContactModal(false)}
-                    className="gradient-button px-6 py-2 rounded-lg font-medium"
-                  >
-                    Close
-                  </button>
-                </div>
-              ) : (
-                <>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center">
-                      <div className="mr-3 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                        {pricingIcon}
-                      </div>
-                      <h3 className="text-xl font-bold text-heading-color">Contact Us</h3>
+        <>
+          <div className="fixed inset-0 bg-black z-40" style={{ opacity: 0.7 }}></div>
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <div className="w-full max-w-md rounded-xl shadow-2xl" style={{
+              backgroundColor: 'var(--background)',
+              borderColor: 'rgba(180, 189, 178, 0.2)',
+              borderWidth: '2px',
+              borderStyle: 'solid'
+            }}>
+              <div className="p-6">
+                {formSubmitted ? (
+                  <div className="text-center py-8">
+                    <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: 'rgba(var(--primary-rgb), 0.1)' }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
                     </div>
+                    <h3 className="text-xl font-bold mb-2 text-heading-color">Thank You!</h3>
+                    <p className="text-text-secondary mb-6">
+                      We've received your request for the <strong>{selectedPlan}</strong> plan. Our team will contact you shortly to discuss the next steps.
+                    </p>
                     <button 
                       onClick={() => setShowContactModal(false)}
-                      className="text-text-secondary hover:text-heading-color bg-secondary/50 hover:bg-secondary p-1.5 rounded-full"
+                      className="gradient-button px-6 py-2 rounded-lg font-medium"
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
+                      Close
                     </button>
                   </div>
-                  <p className="text-text-secondary mb-6">
-                    Complete the form below to get in touch about the <strong>{selectedPlan}</strong> plan.
-                  </p>
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
-                      <label htmlFor="name" className="block mb-1 text-sm font-medium text-heading-color">
-                        Full Name
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        value={formData.name}
-                        onChange={handleChange}
-                        className="w-full px-4 py-2 border border-primary/20 rounded-lg bg-background text-foreground"
-                      />
+                ) : (
+                  <>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center">
+                        <div className="mr-3 w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(var(--primary-rgb), 0.1)' }}>
+                          {pricingIcon}
+                        </div>
+                        <h3 className="text-xl font-bold text-heading-color">Contact Us</h3>
+                      </div>
+                      <button 
+                        onClick={() => setShowContactModal(false)}
+                        className="text-text-secondary hover:text-heading-color bg-secondary/50 hover:bg-secondary p-1.5 rounded-full"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </button>
                     </div>
-                    <div>
-                      <label htmlFor="email" className="block mb-1 text-sm font-medium text-heading-color">
-                        Email Address
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="w-full px-4 py-2 border border-primary/20 rounded-lg bg-background text-foreground"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="phone" className="block mb-1 text-sm font-medium text-heading-color">
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="w-full px-4 py-2 border border-primary/20 rounded-lg bg-background text-foreground"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="message" className="block mb-1 text-sm font-medium text-heading-color">
-                        Additional Information
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        rows={4}
-                        value={formData.message}
-                        onChange={handleChange}
-                        className="w-full px-4 py-2 border border-primary/20 rounded-lg bg-background text-foreground"
-                      />
-                    </div>
-                    <button 
-                      type="submit"
-                      className="w-full gradient-button py-3 px-6 font-medium text-lg rounded-lg"
-                    >
-                      Submit Request
-                    </button>
-                  </form>
-                </>
-              )}
+                    <p className="text-text-secondary mb-6">
+                      Complete the form below to get in touch about the <strong>{selectedPlan}</strong> plan.
+                    </p>
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                      <div>
+                        <label htmlFor="name" className="block mb-1 text-sm font-medium text-heading-color">
+                          Full Name
+                        </label>
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          required
+                          value={formData.name}
+                          onChange={handleChange}
+                          className="w-full px-4 py-2 rounded-lg text-foreground"
+                          style={{ 
+                            backgroundColor: 'var(--background)', 
+                            borderColor: 'rgba(180, 189, 178, 0.2)',
+                            borderWidth: '1px',
+                            borderStyle: 'solid'
+                          }}
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="email" className="block mb-1 text-sm font-medium text-heading-color">
+                          Email Address
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          required
+                          value={formData.email}
+                          onChange={handleChange}
+                          className="w-full px-4 py-2 rounded-lg text-foreground"
+                          style={{ 
+                            backgroundColor: 'var(--background)', 
+                            borderColor: 'rgba(180, 189, 178, 0.2)',
+                            borderWidth: '1px',
+                            borderStyle: 'solid'
+                          }}
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="phone" className="block mb-1 text-sm font-medium text-heading-color">
+                          Phone Number
+                        </label>
+                        <input
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          className="w-full px-4 py-2 rounded-lg text-foreground"
+                          style={{ 
+                            backgroundColor: 'var(--background)', 
+                            borderColor: 'rgba(180, 189, 178, 0.2)',
+                            borderWidth: '1px',
+                            borderStyle: 'solid'
+                          }}
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="message" className="block mb-1 text-sm font-medium text-heading-color">
+                          Additional Information
+                        </label>
+                        <textarea
+                          id="message"
+                          name="message"
+                          rows={4}
+                          value={formData.message}
+                          onChange={handleChange}
+                          className="w-full px-4 py-2 rounded-lg text-foreground"
+                          style={{ 
+                            backgroundColor: 'var(--background)', 
+                            borderColor: 'rgba(180, 189, 178, 0.2)',
+                            borderWidth: '1px',
+                            borderStyle: 'solid'
+                          }}
+                        />
+                      </div>
+                      <button 
+                        type="submit"
+                        className="w-full gradient-button py-3 px-6 font-medium text-lg rounded-lg"
+                      >
+                        Submit Request
+                      </button>
+                    </form>
+                  </>
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
     </main>
   );
